@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6366F1;
+  --color-primary-hover: #4338CA;
+  --color-primary-light: #818CF8;
+  --color-accent: #8B5CF6;
+  --color-accent-light: #A78BFA;
+  --color-surface: #0F172A;
+  --color-surface-alt: #1E293B;
+  --color-surface-hover: #273548;
+  --color-border: #334155;
+  --color-border-light: #475569;
+  --color-text: #F8FAFC;
+  --color-text-muted: #94A3B8;
+  --color-text-dim: #64748B;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ========== Global Styles ========== */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgba(99, 102, 241, 0.4);
+  color: #F8FAFC;
+}
+
+/* ========== Custom Scrollbar ========== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+}
+
+/* ========== Animations ========== */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes blob {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-blob {
+  animation: blob 7s ease-in-out infinite;
+}
+
+/* ========== Glass Effect ========== */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ========== Gradient Text ========== */
+.gradient-text {
+  background: linear-gradient(135deg, #6366F1, #8B5CF6, #A78BFA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========== Markdown Prose ========== */
+.prose-custom h1, .prose-custom h2, .prose-custom h3,
+.prose-custom h4, .prose-custom h5, .prose-custom h6 {
+  color: #F8FAFC;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose-custom p {
+  color: #CBD5E1;
+  line-height: 1.75;
+  margin-bottom: 1em;
+}
+
+.prose-custom strong { color: #F8FAFC; }
+.prose-custom em { color: #94A3B8; }
+
+.prose-custom code {
+  background: rgba(99, 102, 241, 0.15);
+  color: #A78BFA;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+.prose-custom pre {
+  background: #0F172A;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 1em;
+  overflow-x: auto;
+}
+
+.prose-custom pre code {
+  background: none;
+  padding: 0;
+  color: #E2E8F0;
+}
+
+.prose-custom ul, .prose-custom ol {
+  color: #CBD5E1;
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+.prose-custom li { margin-bottom: 0.25em; }
+
+.prose-custom a {
+  color: #818CF8;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-custom a:hover { color: #A78BFA; }
+
+.prose-custom blockquote {
+  border-left: 3px solid #6366F1;
+  padding-left: 1em;
+  color: #94A3B8;
+  font-style: italic;
+}
+
+.prose-custom table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+
+.prose-custom th {
+  background: #1E293B;
+  color: #F8FAFC;
+  padding: 0.75em 1em;
+  text-align: left;
+  border-bottom: 2px solid #334155;
+}
+
+.prose-custom td {
+  padding: 0.75em 1em;
+  border-bottom: 1px solid #1E293B;
+  color: #CBD5E1;
+}
+
+.prose-custom hr {
+  border: none;
+  border-top: 1px solid #334155;
+  margin: 2em 0;
+}
