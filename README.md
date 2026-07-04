@@ -80,6 +80,9 @@ researchiq/
 └── package.json     # Monorepo root
 ```
 
-## License
+## Author
 
-MIT
+**Pranjal Gautam**
+- GitHub: [prgsr76-hash](https://github.com/prgsr76-hash)
+- Developed as an independent, full-stack AI project to demonstrate expertise in RAG, vector databases, and modern web architectures.
+
